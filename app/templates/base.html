@@ -1,88 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% block header %} {% endblock header %} {% block stylesheet %} {% endblock
-    stylesheet %}
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/static/css/navbar.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <title>{% block title %} {% endblock title %}</title>
-  </head>
-  <body>
-    <div class="navbar-header">
-      <div class="navbar-logo">
-        <a href="{{url_for('index')}}" style="text-decoration: none;">
-          <img
-            src="{{url_for('static',filename='/assets/icons/logo.png')}}"
-            alt=""
-            draggable="false"
-        /></a>
-      </div>
 
-      <form action="{% block actionurl %}{% endblock actionurl %}" method="POST">
-      <div class="nav-menu-container">
-        <div class="nav-hide nav-searchbar">
-          <img
-            onclick="javascript.form.submit();"
-            src="{{url_for('static',filename='/assets/icons/search_48px.svg')}}"
-            alt=""
-            draggable="false"
-          />
-          <input type="text" name="Search" id="" placeholder="Search..." />
-        </div>
-        </form>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6M9G7THYPL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-        <div class="nav-hide navbar-links">
-          {% block new_nav_link %} {% endblock new_nav_link %} {% if
-          current_user.is_authenticated %}
-          <div class="navbar-items navbar-account">
-            <img
-              src="{{url_for('static',filename='assets/icons/test_account_48px.svg')}}"
-              alt=""
-              draggable="false"
-            />
-            <a href="{{url_for('profile')}}">My Account</a>
-          </div>
-          {% endif %} {% if not current_user.is_authenticated %}
-          <div class="navbar-items navbar-account">
-            <!-- <img
-              src="{{url_for('static',filename='assets/icons/test_account_48px.svg')}}"
-              alt=""
-            /> -->
-            <a href="{{url_for('login')}}">Login</a>
-          </div>
-          {% endif %} {% if not current_user.is_authenticated %}
-          <div class="navbar-items navbar-account">
-            <!-- <img
-              src="{{url_for('static',filename='assets/icons/test_account_48px.svg')}}"
-              alt=""
-            /> -->
-            <a href="{{url_for('signup')}}">Signup</a>
-          </div>
-          {% endif %} {% if current_user.is_authenticated %}
-          <div class="navbar-items navbar-logout">
-            <img
-              src="{{url_for('static',filename='/assets/icons/exit_48px.svg')}}"
-              alt=""
-              draggable="false"
-            />
-            <a href="{{url_for('logout')}}">Logout</a>
-          </div>
-          {% endif %}
-        </div>
-      </div>
-      <!-- <a onclick="myFunction()" class="bars">
-        <img src="/static/assets/icons/menu_48px.svg" alt="" />
-      </a> -->
+    gtag('config', 'G-6M9G7THYPL');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block header %} {% endblock header %} {% block stylesheet %} {% endblock
+  stylesheet %}
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/navbar.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <title>{% block title %} {% endblock title %}</title>
+</head>
+
+<body>
+  <div class="navbar-header">
+    <div class="navbar-logo">
+      <a href="{{url_for('index')}}" style="text-decoration: none;">
+        <img src="{{url_for('static',filename='/assets/icons/logo.png')}}" alt="" draggable="false" /></a>
     </div>
 
-    {% block content %} {% endblock content %}
-  </body>
+    <form action="{% block actionurl %}{% endblock actionurl %}" method="POST">
+      <div class="nav-menu-container">
+        <div class="nav-hide nav-searchbar">
+          <img onclick="javascript.form.submit();" src="{{url_for('static',filename='/assets/icons/search_48px.svg')}}"
+            alt="" draggable="false" />
+          <input type="text" name="Search" id="" placeholder="Search..." />
+        </div>
+    </form>
+
+    <div class="nav-hide navbar-links">
+      {% block new_nav_link %} {% endblock new_nav_link %} {% if
+      current_user.is_authenticated %}
+      <div class="navbar-items navbar-account">
+        <img src="{{url_for('static',filename='assets/icons/test_account_48px.svg')}}" alt="" draggable="false" />
+        <a href="{{url_for('profile')}}">My Account</a>
+      </div>
+      {% endif %} {% if not current_user.is_authenticated %}
+      <div class="navbar-items navbar-account">
+        <!-- <img
+              src="{{url_for('static',filename='assets/icons/test_account_48px.svg')}}"
+              alt=""
+            /> -->
+        <a href="{{url_for('login')}}">Login</a>
+      </div>
+      {% endif %} {% if not current_user.is_authenticated %}
+      <div class="navbar-items navbar-account">
+        <!-- <img
+              src="{{url_for('static',filename='assets/icons/test_account_48px.svg')}}"
+              alt=""
+            /> -->
+        <a href="{{url_for('signup')}}">Signup</a>
+      </div>
+      {% endif %} {% if current_user.is_authenticated %}
+      <div class="navbar-items navbar-logout">
+        <img src="{{url_for('static',filename='/assets/icons/exit_48px.svg')}}" alt="" draggable="false" />
+        <a href="{{url_for('logout')}}">Logout</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <!-- <a onclick="myFunction()" class="bars">
+        <img src="/static/assets/icons/menu_48px.svg" alt="" />
+      </a> -->
+  </div>
+
+  {% block content %} {% endblock content %}
+</body>
+
 </html>
