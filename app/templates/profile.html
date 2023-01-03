@@ -1,48 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/css/profile.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
-      rel="stylesheet"
-    />
-    <title>My Account</title>
-  </head>
 
-  <body class="full">
-    
-    <div class="header">
-      <div class="logo">
-        <a href="{{url_for('index')}}"><img src="/static/assets/icons/logo.png" alt="" /></a>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6M9G7THYPL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-6M9G7THYPL');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/css/profile.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
+  <title>My Account</title>
+</head>
+
+<body class="full">
+
+  <div class="header">
+    <div class="logo">
+      <a href="{{url_for('index')}}"><img src="/static/assets/icons/logo.png" alt="" /></a>
+    </div>
+    <div class="home">
+      <div class="dashboard">
+        <img src="/static/assets/icons/home_48px.svg" alt="" />
+        <a href="{{url_for('dashboard')}}">Dashboard</a>
       </div>
-      <div class="home">
-        <div class="dashboard">
-          <img src="/static/assets/icons/home_48px.svg" alt="" />
-          <a href="{{url_for('dashboard')}}">Dashboard</a>
-        </div>
-        <div class="logout">
-          <img src="/static/assets/icons/exit_48px.svg" alt="" />
-          <a href="{{url_for('logout')}}">Logout</a>
-        </div>
+      <div class="logout">
+        <img src="/static/assets/icons/exit_48px.svg" alt="" />
+        <a href="{{url_for('logout')}}">Logout</a>
       </div>
     </div>
-    <h1>MY ACCOUNT</h1>
-    <div class="edit">
-      <div class="title">
-        <img src="/static/assets/icons/edit-profile_48px.svg" alt="" />
-        <h2>EDIT PROFILE</h2>
-      </div>
-      <p class="profileinfo">Name: <input type="text" name="" id="" placeholder="{{name}}" readonly></p>
-      <p class="profileinfo">Email: <input type="text" name="" id="" placeholder="{{email}}" readonly></p>
-      <div class="edit-button-container">
-        <a href="{{url_for('update_profile')}}">
-          <button class="profile-edit-btn">Edit</button>
-        </a>
-      </div>
+  </div>
+  <h1>MY ACCOUNT</h1>
+  <div class="edit">
+    <div class="title">
+      <img src="/static/assets/icons/edit-profile_48px.svg" alt="" />
+      <h2>EDIT PROFILE</h2>
     </div>
-  </body>
+    <p class="profileinfo">Name: <input type="text" name="" id="" placeholder="{{name}}" readonly></p>
+    <p class="profileinfo">Email: <input type="text" name="" id="" placeholder="{{email}}" readonly></p>
+    <div class="edit-button-container">
+      <a href="{{url_for('update_profile')}}">
+        <button class="profile-edit-btn">Edit</button>
+      </a>
+    </div>
+  </div>
+</body>
+
 </html>
